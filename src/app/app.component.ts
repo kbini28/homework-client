@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
         <ul class='nav nav-pills'>
           <li><a class='nav-link' routerLinkActive='active' routerLink='/welcome'>Home</a></li>
           <li><a class='nav-link' routerLinkActive='active' routerLink='/products'>Product List</a></li>
+          <li><a class='nav-link' routerLinkActive='active' routerLink='/projects'>Project List</a></li>
         </ul>
     </nav>
     <div class='container'>
@@ -17,5 +18,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  pageTitle = 'Acme Product Management';
+  pageTitle = 'HomeWork: The DIY Home Project Manager';
 }
