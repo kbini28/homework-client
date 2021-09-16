@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
           <li><a class='nav-link' routerLinkActive='active' routerLink='/welcome'>Home</a></li>
           <li><a class='nav-link' routerLinkActive='active' routerLink='/products'>Product List</a></li>
           <li><a class='nav-link' routerLinkActive='active' routerLink='/projects'>Project List</a></li>
+          <li><a class='nav-link' routerLinkActive='active' routerLink='/projects/0/edit'>New Project</a></li>
         </ul>
     </nav>
     <div class='container'>
@@ -18,5 +19,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  pageTitle = 'HomeWork: The DIY Home Project Manager';
+  pageTitle = 'HomeWork';
 }
