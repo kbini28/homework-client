@@ -5,6 +5,8 @@ import { ProjectDetailComponent } from './project-detail.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { ProjectDetailGuard } from './project-detail.guard';
+import { EditProjectComponent } from './edit-project.component';
+import { EditProjectGuard } from './edit-project-guard.service';
 
 
 
@@ -12,6 +14,7 @@ import { ProjectDetailGuard } from './project-detail.guard';
   declarations: [
     ProjectListComponent,
     ProjectDetailComponent,
+    EditProjectComponent,
     // ConvertToSpacesPipe - not sure if i need this, can only be declared by one module
   ],
   imports: [
@@ -21,6 +24,11 @@ import { ProjectDetailGuard } from './project-detail.guard';
         path: 'projects/:id',
         canActivate: [ProjectDetailGuard],
         component: ProjectDetailComponent 
+      },
+      { 
+        path: 'projects/:id/edit',
+        canDeactivate: [EditProjectGuard],
+        component: EditProjectComponent 
       }
     ]),
     SharedModule

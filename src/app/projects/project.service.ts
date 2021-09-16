@@ -1,6 +1,6 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { IProject } from './project';
 
@@ -19,16 +19,27 @@ export class ProjectService {
       .pipe(
         tap(data => console.log('All: ', JSON.stringify(data))),
         catchError(this.handleError)
-      )
+      );
   }
 
   getProject(id: number): Observable<IProject | undefined> {
     return this.getProjects()
       .pipe(
         map((projects: IProject[]) => projects.find(p => p.projectId === id))
-      )
+      );
   }
 
+  create(data: any): Observable<any> {
+    return this.http.post(this.baseUrl, data);
+  }
+
+  update(id: number,data: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${id}`, data);
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
 
   // Error handler
   private handleError(err: HttpErrorResponse): Observable<never> {
